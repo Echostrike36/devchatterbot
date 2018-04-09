@@ -10,7 +10,7 @@ namespace DevChatter.Bot.Core.Games.Heist
 {
     public class HeistGame
     {
-        private readonly AutomatedActionSystem _automatedActionSystem;
+        private readonly IAutomatedActionSystem _automatedActionSystem;
         public bool IsGameRunning { get; private set; }
         private const UserRole ROLE_REQUIRED_TO_START = UserRole.Subscriber;
         private const int HEIST_DELAY_IN_SECONDS = 90;
@@ -19,7 +19,7 @@ namespace DevChatter.Bot.Core.Games.Heist
         private DelayedMessageAction _lastCallToJoin;
         private OneTimeCallBackAction _startHeistAction;
 
-        public HeistGame(AutomatedActionSystem automatedActionSystem)
+        public HeistGame(IAutomatedActionSystem automatedActionSystem)
         {
             _automatedActionSystem = automatedActionSystem;
         }
